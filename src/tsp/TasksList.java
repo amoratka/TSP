@@ -5,7 +5,7 @@
  */
 package tsp;
 
-import java.util.ArrayList;
+import java.util.PriorityQueue;
 
 /**
  *
@@ -13,10 +13,10 @@ import java.util.ArrayList;
  */
 public class TasksList {
     int from;
-    ArrayList<Task> tasks;
+    PriorityQueue <Task> tasks;
 
     public TasksList() {
-        this.tasks = new ArrayList<>();
+        this.tasks = new PriorityQueue <>();
     }
        
 }

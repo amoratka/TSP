@@ -17,18 +17,20 @@ import static tsp.FileReading.TownsReading;
  * @author Kamila
  */
 public class Start {
-    public static void Start() throws IOException{
+
+    public static void Start() throws IOException {
         List<Town> towns;
         towns = new ArrayList<>();
         TasksList taskslist;
         taskslist = new TasksList();
+        //PriorityQueue <Task> tasks;
+        //tasks=new PriorityQueue<>();
         List<Distance> distances;
-        distances=new ArrayList<>();
+        distances = new ArrayList<>();
         TownsReading(towns);
         TasksReading(taskslist);
         DistancesReading(distances);
-        //for(int i=0;i<distances.size();i++)
-        //System.out.println(distances.get(i).from+" "+distances.get(i).to+" "+distances.get(i).distance);
+       
     }
 
 }

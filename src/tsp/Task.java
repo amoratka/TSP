@@ -9,10 +9,18 @@ package tsp;
  *
  * @author Kamila
  */
-public class Task {
+public class Task implements Comparable <Task> {
+
     int id;
     int to;
     String name;
     int priority;
-    
+
+    @Override
+    public int compareTo(Task t) {
+        return -(this.priority-t.priority);
+    }
+
+
+
 }

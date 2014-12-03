@@ -9,7 +9,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -87,7 +86,7 @@ public class FileReading {
                 int tmp;
                 tmp=table[table.length-1].length()+1;
                 task.name=name.substring(0,name.length()-tmp);
-                taskslist.tasks.add(task);
+                taskslist.tasks.offer(task);
                 //System.out.println(line);
                 //System.out.println(task.id+" "+task.to+" "+task.name+" "+task.priority);
             }
