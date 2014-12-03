@@ -5,6 +5,9 @@
  */
 package tsp;
 
+import java.io.IOException;
+import static tsp.Start.Start;
+
 /**
  *
  * @author Kamila
@@ -13,9 +16,10 @@ public class TSP {
 
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws IOException {
+       Start();
     }
     
 }
