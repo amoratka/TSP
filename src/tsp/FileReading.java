@@ -22,7 +22,7 @@ public class FileReading {
      * @param towns
      * @throws IOException
      */
-    public static void TownsReading(List towns) throws IOException {
+    public static void townsReading(List towns) throws IOException {
         FileReader fr = null;
         String line = "";
 
@@ -59,7 +59,7 @@ public class FileReading {
             System.exit(3);
         }
     }
-    public static void TasksReading(TasksList taskslist) throws IOException{
+    public static void tasksReading(TasksList taskslist) throws IOException{
         FileReader fr = null;
         String line = "";
 
@@ -104,7 +104,7 @@ public class FileReading {
         }
     }
         
-    public static void DistancesReading(List distances) throws IOException{
+    public static void distancesReading(List distances) throws IOException{
         FileReader fr = null;
         String line = "";
 

@@ -8,9 +8,10 @@ package tsp;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import static tsp.FileReading.DistancesReading;
-import static tsp.FileReading.TasksReading;
-import static tsp.FileReading.TownsReading;
+import static tsp.FileReading.distancesReading;
+import static tsp.FileReading.tasksReading;
+import static tsp.FileReading.townsReading;
+import static tsp.TasksSplit.splitTasks;
 
 /**
  *
@@ -23,14 +24,20 @@ public class Start {
         towns = new ArrayList<>();
         TasksList taskslist;
         taskslist = new TasksList();
-        //PriorityQueue <Task> tasks;
-        //tasks=new PriorityQueue<>();
         List<Distance> distances;
         distances = new ArrayList<>();
-        TownsReading(towns);
-        TasksReading(taskslist);
-        DistancesReading(distances);
-       
+        townsReading(towns);
+        tasksReading(taskslist);
+        distancesReading(distances);
+        int n = 5;
+        int payload = 4;
+        Car[] cars = new Car[n];
+        for (int i = 0; i < n; i++) {
+            Car car = new Car(payload);
+            cars[i] = car;
+        }
+        splitTasks(n,payload,taskslist,cars);
+
     }
 
 }

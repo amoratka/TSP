@@ -11,5 +11,10 @@ package tsp;
  */
 public class Car {
     int payload;
-    Package[] truckload= new Package[payload];
+    Task[] truckload= new Task[payload];
+    
+    public Car(int payload){
+            this.payload=payload;
+            this.truckload=new Task[payload];
+    }
 }
