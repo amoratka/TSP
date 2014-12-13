@@ -19,7 +19,7 @@ public class TSP {
      * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
-       Start();
+       Start(args);
     }
     
 }

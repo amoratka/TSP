@@ -8,6 +8,7 @@ package tsp;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import static tsp.CarsCreation.creatCars;
 import static tsp.FileReading.distancesReading;
 import static tsp.FileReading.tasksReading;
 import static tsp.FileReading.townsReading;
@@ -19,24 +20,32 @@ import static tsp.TasksSplit.splitTasks;
  */
 public class Start {
 
-    public static void Start() throws IOException {
+    public static void Start(String[] args) throws IOException {
+        /*int n;
+        n = Integer.parseInt(args[0]);
+        int payload;
+        payload = Integer.parseInt(args[1]);*/
+        String miasta;
+        miasta = args[2];
+        String polaczenia;
+        polaczenia = args[3];
+        String zlecenia;
+        zlecenia = args[4];
+
         List<Town> towns;
         towns = new ArrayList<>();
         TasksList taskslist;
         taskslist = new TasksList();
         List<Distance> distances;
         distances = new ArrayList<>();
-        townsReading(towns);
-        tasksReading(taskslist);
-        distancesReading(distances);
+        townsReading(towns,miasta);
+        tasksReading(taskslist,zlecenia);
+        distancesReading(distances,polaczenia);
         int n = 5;
         int payload = 4;
         Car[] cars = new Car[n];
-        for (int i = 0; i < n; i++) {
-            Car car = new Car(payload);
-            cars[i] = car;
-        }
-        splitTasks(n,payload,taskslist,cars);
+        creatCars(n, payload, cars);
+        splitTasks(n, payload, taskslist, cars);
 
     }
 

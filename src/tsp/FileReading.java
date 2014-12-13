@@ -20,15 +20,16 @@ public class FileReading {
     /**
      *
      * @param towns
+     * @param miasta
      * @throws IOException
      */
-    public static void townsReading(List towns) throws IOException {
+    public static void townsReading(List towns,String miasta) throws IOException {
         FileReader fr = null;
         String line = "";
 
         // OTWIERANIE PLIKU:
         try {
-            fr = new FileReader("miasta.txt");
+            fr = new FileReader(miasta);
         } catch (FileNotFoundException e) {
             System.out.println("BŁĄD PRZY OTWIERANIU PLIKU!");
             System.exit(1);
@@ -59,13 +60,13 @@ public class FileReading {
             System.exit(3);
         }
     }
-    public static void tasksReading(TasksList taskslist) throws IOException{
+    public static void tasksReading(TasksList taskslist, String zlecenia) throws IOException{
         FileReader fr = null;
         String line = "";
 
         // OTWIERANIE PLIKU:
         try {
-            fr = new FileReader("zlecenia.txt");
+            fr = new FileReader(zlecenia);
         } catch (FileNotFoundException e) {
             System.out.println("BŁĄD PRZY OTWIERANIU PLIKU!");
             System.exit(1);
@@ -104,13 +105,13 @@ public class FileReading {
         }
     }
         
-    public static void distancesReading(List distances) throws IOException{
+    public static void distancesReading(List distances, String polaczenia) throws IOException{
         FileReader fr = null;
         String line = "";
 
         // OTWIERANIE PLIKU:
         try {
-            fr = new FileReader("połączenia.txt");
+            fr = new FileReader(polaczenia);
         } catch (FileNotFoundException e) {
             System.out.println("BŁĄD PRZY OTWIERANIU PLIKU!");
             System.exit(1);
