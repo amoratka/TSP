@@ -10,9 +10,17 @@ package tsp;
  * @author Kamila
  */
 public class CarsCreation {
+
+    /**
+     *
+     * @param n
+     * @param payload
+     * @param cars
+     */
     public static void creatCars(int n, int payload, Car cars[]){
         for (int i = 0; i < n; i++) {
-            Car car = new Car(payload);
+            Car car;
+            car = new Car(payload);
             cars[i] = car;
         }
     }

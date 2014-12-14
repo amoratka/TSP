@@ -5,6 +5,8 @@
  */
 package tsp;
 
+import static tsp.CarsCreation.creatCars;
+
 /**
  *
  * @author Kamila
@@ -19,13 +21,13 @@ public class TasksSplit {
      * @param cars
      */
     public static void splitTasks(int n, int payload, TasksList taskslist, Car[] cars) {
-
+        creatCars(n, payload, cars);
         boolean isEmpty = false;
         for (int i = 0; i < cars[i].payload; i++) {
             for (int j = 0; j < n; j++) {
                 if (taskslist.tasks.peek() != null) {
                     System.out.println("i: " + i + " j: " + j);
-                    cars[j].truckload[i] = taskslist.tasks.poll();
+                    cars[j].truckload.offer( taskslist.tasks.poll());
 
                 } else {
                     isEmpty = true;

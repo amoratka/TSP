@@ -23,7 +23,7 @@ public class FileReading {
      * @param miasta
      * @throws IOException
      */
-    public static void townsReading(List towns,String miasta) throws IOException {
+    public static void townsReading(List<Town> towns, String miasta) throws IOException {
         FileReader fr = null;
         String line = "";
 
@@ -37,12 +37,12 @@ public class FileReading {
 
         BufferedReader bfr = new BufferedReader(fr);
         // ODCZYT KOLEJNYCH LINII Z PLIKU:
-        line=bfr.readLine();
+        line = bfr.readLine();
         try {
             while ((line = bfr.readLine()) != null) {
                 Town town = new Town();
-                town.id = Integer.parseInt(line.substring(0,1));
-                town.name=line.substring(2);
+                town.id = Integer.parseInt(line.substring(0, 1));
+                town.name = line.substring(2);
                 towns.add(town);
                 //System.out.println(line);
                 //System.out.println(town.name+" "+town.id+" "+towns.size());
@@ -60,7 +60,8 @@ public class FileReading {
             System.exit(3);
         }
     }
-    public static void tasksReading(TasksList taskslist, String zlecenia) throws IOException{
+
+    public static void tasksReading(TasksList taskslist, String zlecenia) throws IOException {
         FileReader fr = null;
         String line = "";
 
@@ -74,19 +75,19 @@ public class FileReading {
 
         BufferedReader bfr = new BufferedReader(fr);
         // ODCZYT KOLEJNYCH LINII Z PLIKU:
-        line=bfr.readLine();
-        taskslist.from=Integer.parseInt(line.substring(0,1));
+        line = bfr.readLine();
+        taskslist.from = Integer.parseInt(line.substring(0, 1));
         try {
             while ((line = bfr.readLine()) != null) {
-                String[] table=line.split(" ");
-                Task task=new Task();
-                task.id=Integer.parseInt(table[0]);
-                task.to=Integer.parseInt(table[2]);
-                task.priority=Integer.parseInt(table[table.length-1]);
-                String name=line.substring(8);
+                String[] table = line.split(" ");
+                Task task = new Task();
+                task.id = Integer.parseInt(table[0]);
+                task.to = Integer.parseInt(table[2]);
+                task.priority = Integer.parseInt(table[table.length - 1]);
+                String name = line.substring(8);
                 int tmp;
-                tmp=table[table.length-1].length()+1;
-                task.name=name.substring(0,name.length()-tmp);
+                tmp = table[table.length - 1].length() + 1;
+                task.name = name.substring(0, name.length() - tmp);
                 taskslist.tasks.offer(task);
                 //System.out.println(line);
                 //System.out.println(task.id+" "+task.to+" "+task.name+" "+task.priority);
@@ -104,8 +105,14 @@ public class FileReading {
             System.exit(3);
         }
     }
-        
-    public static void distancesReading(List distances, String polaczenia) throws IOException{
+
+    /**
+     *
+     * @param distances
+     * @param polaczenia
+     * @throws IOException
+     */
+    public static void distancesReading(List<Distance> distances, String polaczenia) throws IOException {
         FileReader fr = null;
         String line = "";
 
@@ -119,14 +126,14 @@ public class FileReading {
 
         BufferedReader bfr = new BufferedReader(fr);
         // ODCZYT KOLEJNYCH LINII Z PLIKU:
-        line=bfr.readLine();
+        line = bfr.readLine();
         try {
             while ((line = bfr.readLine()) != null) {
-                String[] table=line.split(" ");
+                String[] table = line.split(" ");
                 Distance distance = new Distance();
-                distance.from=Integer.parseInt(table[0]);
-                distance.to=Integer.parseInt(table[1]);
-                distance.distance=Integer.parseInt(table[2]);
+                distance.from = Integer.parseInt(table[0]);
+                distance.to = Integer.parseInt(table[1]);
+                distance.distance = Integer.parseInt(table[2]);
                 distances.add(distance);
                 //System.out.println(line);
                 //System.out.println(distance.from+" "+distance.to+" "+distance.distance);
