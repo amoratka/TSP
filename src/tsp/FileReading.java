@@ -10,6 +10,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
+import static tsp.Dijkstra.computePaths;
+import static tsp.Dijkstra.getShortestPathTo;
 
 /**
  *
@@ -108,11 +110,12 @@ public class FileReading {
 
     /**
      *
-     * @param distances
+     * @param vertices
      * @param polaczenia
-     * @throws IOException
+     * @param from
+     * @throws java.io.IOException
      */
-    public static void distancesReading(List<Distance> distances, String polaczenia) throws IOException {
+    public static void vertexReading(Vertex[] vertices, String polaczenia, int from) throws IOException {
         FileReader fr = null;
         String line = "";
 
@@ -128,16 +131,16 @@ public class FileReading {
         // ODCZYT KOLEJNYCH LINII Z PLIKU:
         line = bfr.readLine();
         try {
+
             while ((line = bfr.readLine()) != null) {
                 String[] table = line.split(" ");
-                Distance distance = new Distance();
-                distance.from = Integer.parseInt(table[0]);
-                distance.to = Integer.parseInt(table[1]);
-                distance.distance = Integer.parseInt(table[2]);
-                distances.add(distance);
-                //System.out.println(line);
-                //System.out.println(distance.from+" "+distance.to+" "+distance.distance);
+                Edge edge = new Edge(vertices[Integer.parseInt(table[0])], Double.parseDouble(table[2]));
+                Edge edge2 = new Edge(vertices[Integer.parseInt(table[1])], Double.parseDouble(table[2]));
+                vertices[Integer.parseInt(table[0])].adjacencies.add(edge2);
+                vertices[Integer.parseInt(table[1])].adjacencies.add(edge);
+
             }
+
         } catch (IOException e) {
             System.out.println("BŁĄD ODCZYTU Z PLIKU!");
             System.exit(2);

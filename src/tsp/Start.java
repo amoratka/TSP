@@ -8,9 +8,10 @@ package tsp;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import static tsp.FileReading.distancesReading;
+import java.util.Timer;
 import static tsp.FileReading.tasksReading;
 import static tsp.FileReading.townsReading;
+import static tsp.FileReading.vertexReading;
 import static tsp.TasksSplit.splitTasks;
 import static tsp.TheBestWaySearch.searchTheBestWay;
 
@@ -19,6 +20,7 @@ import static tsp.TheBestWaySearch.searchTheBestWay;
  * @author Kamila
  */
 public class Start {
+    
 
     public static void Start(String[] args) throws IOException {
         /*int n;
@@ -42,22 +44,28 @@ public class Start {
         TasksList taskslist;
         taskslist = new TasksList();
         
-        List<Distance> distances;
-        distances = new ArrayList<>();
+        //List<Distance> distances;
+        //distances = new ArrayList<>();
 
         townsReading(towns, miasta);
         tasksReading(taskslist, zlecenia);
-        distancesReading(distances, polaczenia);
-
-        int n = 5;
-        int payload = 4;
-        Car[] cars = new Car[n];
         
+        Vertex[] vertices=new Vertex[towns.size()];
+        for( int i = 0; i < vertices.length; i++){
+                   vertices[i]=new Vertex(towns.get(i).name);
+               }
+        vertexReading( vertices,polaczenia,taskslist.from);
+
+        int n = 1;
+        int payload = 6;
+        Car[] cars = new Car[n];
+        int from =taskslist.from;
       
                
         
         splitTasks(n, payload, taskslist, cars);
-        searchTheBestWay(cars,distances,towns);
+        
+        searchTheBestWay(cars,vertices,towns,from);
         
     }
 

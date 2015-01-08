@@ -12,7 +12,7 @@ import java.util.PriorityQueue;
  * @author Kamila
  */
 public class Car {
-    int payload;
+    int payload;  
     PriorityQueue <Task> truckload;
     
     /**

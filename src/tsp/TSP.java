@@ -18,8 +18,12 @@ public class TSP {
      * @param args the command line arguments
      * @throws java.io.IOException
      */
-    public static void main(String[] args) throws IOException {
-       Start(args);
+    //public static void main(String[] args) throws IOException {
+    //   Start(args);
+   // }
+    public static void main(String[] args) throws IOException
+    {
+        Start(args);
     }
     
 }

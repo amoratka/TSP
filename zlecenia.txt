@@ -1,0 +1,5 @@
+3
+001 3 1 Laptop dla p.Kowalskiego 40
+002 3 0 Robot dla NASA 100
+003 3 2 Paczka indeksow dla PW 0
+004 3 4 Kwiaty na Dzien Matki 10
