@@ -29,7 +29,7 @@ public class Dijkstra
                 double weight = e.weight;
                 double distanceThroughU = u.minDistance + weight;
 		if (distanceThroughU < v.minDistance) {
-		    vertexQueue.remove(v);
+		   // vertexQueue.remove(v);
 
 		    v.minDistance = distanceThroughU ;
 		    v.previous = u;

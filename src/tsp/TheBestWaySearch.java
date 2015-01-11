@@ -6,9 +6,7 @@
 package tsp;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.PriorityQueue;
 import static tsp.Dijkstra.computePaths;
 import static tsp.Dijkstra.getShortestPathTo;
 
@@ -20,34 +18,34 @@ public class TheBestWaySearch {
 
     /**
      *
-     * @param cars
-     * @param vertices
      * @param towns
      * @param from
      */
     @SuppressWarnings("empty-statement")
     public static void searchTheBestWay(Car[] cars2, Vertex[] vertices2, List<Town> towns, int from) {
-        Vertex[] vertices;
+        
+        for (int i = 0; i < cars2.length; i++) {
+            Vertex[] vertices;
         Car[] cars=cars2;
-        int all_distance = 0;
-        for (int i = 0; i < cars.length; i++) {
+        
+            int all_distance = 0;
             vertices = vertices2;
             Vertex source;
             System.out.println("Samochód nr " + (i + 1));
             List<Vertex> path = new ArrayList<>();
             List<Vertex> cars_path = new ArrayList<>();
-            Task task;
+            Task task = null;
             int tmp=0;
             while (!cars[i].truckload.isEmpty()) {
-                
+                vertices = vertices2;
                 if (tmp == 0) {
                     source = vertices[from];
                 } else {
-                    source = cars_path.get(cars_path.size() - 1);
-
+                    source = vertices[task.to];//;
+                       source.previous=cars_path.get(cars_path.size() - 2);
                 }
                 source.previous=null;
-                vertices = vertices2;
+                
                 System.out.println("Pobiera paczkę z " + source.name);
                 task = cars[i].truckload.poll();
                 vertices[task.to].previous = source;

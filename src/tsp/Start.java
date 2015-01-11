@@ -56,8 +56,8 @@ public class Start {
                }
         vertexReading( vertices,polaczenia,taskslist.from);
 
-        int n = 1;
-        int payload = 6;
+        int n = 2;
+        int payload = 3;
         Car[] cars = new Car[n];
         int from =taskslist.from;
       
